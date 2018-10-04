@@ -1,5 +1,5 @@
 from flask import Blueprint, request, render_template, abort, session, redirect
-from Models.User import User
+from Models.User import UserService
 
 mod = Blueprint('dash_routes', __name__)
 
