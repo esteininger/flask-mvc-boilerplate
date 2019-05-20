@@ -1,45 +1,33 @@
 import os
 
-appConfig = {
+app_config = {
     'ROOT_PATH': os.path.dirname(os.path.abspath(__file__))
 }
 
-mongoConfig = {
+mongo_config = {
     'IP': '',
     'PORT': ,
     'USERNAME': '',
     'PASSWORD': '',
     'DATABASE': ''
+    # 'DATABASE': 'meports'
 }
 
-sqlConfig = {
-    'IP': '',
-    'USERNAME': '',
-    'PASSWORD': '',
-    'DATABASE': ''
-}
-
-cloudinaryConfig = {
-    'NAME' : '',
-    'KEY' : '',
-    'SECRET' : ''
-}
 
 emailConfig = {
     'ADDRESS' : '',
     'PASSWORD' : '',
-    'SMTP': '',
-    'PORT': 
+    'SMTP': 'smtp.gmail.com',
+    'PORT': 587
 }
 
 sessionKey = ''
 secretKey = ''
-sentryDSN = ''
-serverName = ''
+dev_computer_name = ''
 
 def getMode():
     server = str(os.path.realpath('.'))
-    if serverName in server:
+    if dev_computer_name in server:
         return 'test'
     else:
         return 'live'

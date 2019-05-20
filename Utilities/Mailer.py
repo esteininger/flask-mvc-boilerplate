@@ -2,16 +2,17 @@
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from config import emailConfig
+from config import email_config
+
 
 class Mailer:
     def __init__(self):
-        self.PASSWORD = emailConfig['PASSWORD']
-        self.SMTP = emailConfig['SMTP']
-        self.PORT = emailConfig['PORT']
-        self.FROM_ADDR = emailConfig['ADDRESS']
+        self.PASSWORD = email_config['PASSWORD']
+        self.SMTP = email_config['SMTP']
+        self.PORT = email_config['PORT']
+        self.FROM_ADDR = email_config['ADDRESS']
 
-    def sendMail(self, **kwargs):
+    def send(self, **kwargs):
         try:
             toaddr = kwargs.get('toaddr')
             msg = MIMEMultipart()
@@ -20,8 +21,7 @@ class Mailer:
             msg['Subject'] = kwargs.get('subject')
 
             #set email template
-            if kwargs.get('type') == 'reset':
-                html = self.resetEmailTemplate(kwargs.get('username'), kwargs.get('uniqueID'))
+            html = self.template(**kwargs)
 
             msg.attach(MIMEText(html.encode('utf-8'), 'html', 'utf-8'))
             server = smtplib.SMTP(self.SMTP, self.PORT)
@@ -31,5 +31,10 @@ class Mailer:
             server.sendmail(self.FROM_ADDR, toaddr, text)
             server.quit()
         except Exception as e:
-            print (e)
+            print(e)
             pass
+
+    def template(self, **kwargs):
+        html = """
+        """
+        return html
