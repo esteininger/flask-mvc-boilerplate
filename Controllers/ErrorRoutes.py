@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template
-from config import appConfig
+from config import app_config
 
 mod = Blueprint('error_routes', __name__)
 
