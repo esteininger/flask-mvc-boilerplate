@@ -1,7 +1,7 @@
-# Podcast-Word-Cloud
+# Flask MVC Boilerplate
 This is a Flask MVC boilerplate that includes:
 
-  - Sentry logging with conditionals of live vs local 
+  - Sentry logging with conditionals of live vs local
   - Login required decorator
   - SQLAlchemy & MongoDB ready
   - Models, Views, Controllers (Routes) structured via blueprints
