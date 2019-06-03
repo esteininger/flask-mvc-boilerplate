@@ -1,9 +1,7 @@
 from flask import Flask
-from config import session_key, app_config, mongo_config, get_mode
+from config import session_key, app_config, mongo_config
 from Controllers import PageRoutes
 from Utilities.Database import db
-import sentry_sdk
-from sentry_sdk.integrations.flask import FlaskIntegration
 
 app = Flask(__name__)
 
@@ -14,9 +12,9 @@ app.template_folder = app_config['ROOT_PATH'].split('Controllers')[0] + '/Views/
 
 
 # blueprints init
-blueprints = (
+blueprints = [
     PageRoutes.mod
-)
+]
 
 # db stuff
 app.config['MONGODB_SETTINGS'] = {
@@ -33,12 +31,6 @@ for bp in blueprints:
     app.register_blueprint(bp)
 
 db.init_app(app)
-
-if get_mode() == 'live':
-    sentry_sdk.init(
-        dsn="https://51c6a631e0614c70a32eadf0068ea4d0@sentry.io/1406120",
-        integrations=[FlaskIntegration()]
-    )
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5001, debug=True)
