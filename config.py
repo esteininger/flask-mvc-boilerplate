@@ -14,7 +14,7 @@ mongo_config = {
 }
 
 
-emailConfig = {
+email_config = {
     'ADDRESS' : '',
     'PASSWORD' : '',
     'SMTP': 'smtp.gmail.com',
