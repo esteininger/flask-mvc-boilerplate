@@ -1,13 +1,13 @@
 # Flask MVC Boilerplate
 This is a Flask MVC boilerplate that includes:
 
-  - Sentry logging with conditionals of live vs local
-  - Login required decorator
+  - Login required decorator /w redirect
   - SQLAlchemy & MongoDB ready
   - Models, Views, Controllers (Routes) structured via blueprints
   - Route method (success vs error) handling
   - Mailer class
   - Configuration file
+  - JWT-Extended integration
 
 ### Installation
 
@@ -26,9 +26,3 @@ pip install -r requirements.txt
 ```python
 python run.py
 ```
-
-
-I welcome pull requests, as I'd help addressing the following enhancements:
-
-  - More context in Sentry logs
-  - MongoDB via ORM within env variables similar to SQLAlchemy
