@@ -32,5 +32,5 @@ def check_json(json, keys):
     return None
 
 
-def log_error():
+def log_error(data, traceback):
     pass

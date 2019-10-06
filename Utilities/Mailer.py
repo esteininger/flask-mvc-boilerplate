@@ -12,6 +12,7 @@ class Mailer:
         self.PORT = email_config['PORT']
         self.FROM_ADDR = email_config['ADDRESS']
 
+    # takes kwargs dict: toaddr, subject, html
     def send(self, **kwargs):
         try:
             toaddr = kwargs.get('toaddr')
@@ -20,7 +21,7 @@ class Mailer:
             msg['To'] = toaddr
             msg['Subject'] = kwargs.get('subject')
 
-            #set email template
+            # set email template
             html = self.template(**kwargs)
 
             msg.attach(MIMEText(html.encode('utf-8'), 'html', 'utf-8'))
@@ -35,6 +36,5 @@ class Mailer:
             pass
 
     def template(self, **kwargs):
-        html = """
-        """
+        html = kwargs.get('html')
         return html

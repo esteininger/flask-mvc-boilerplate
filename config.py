@@ -6,26 +6,29 @@ app_config = {
 
 mongo_config = {
     'IP': '',
-    'PORT': ,
+    'PORT': 1,
     'USERNAME': '',
     'PASSWORD': '',
-    'DATABASE': ''
-    # 'DATABASE': 'meports'
+    'DB': '',
+    'AUTH': ''
 }
 
 
-emailConfig = {
-    'ADDRESS' : '',
-    'PASSWORD' : '',
+email_config = {
+    'ADDRESS': '',
+    'PASSWORD': '',
     'SMTP': 'smtp.gmail.com',
     'PORT': 587
 }
 
-sessionKey = ''
-secretKey = ''
-dev_computer_name = ''
 
-def getMode():
+session_key = '1'
+secret_key = '1'
+dev_computer_name = ''
+jwt_secret = '1'
+
+
+def get_mode():
     server = str(os.path.realpath('.'))
     if dev_computer_name in server:
         return 'test'

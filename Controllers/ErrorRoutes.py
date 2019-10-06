@@ -1,12 +1,14 @@
-from flask import Blueprint, render_template
-from config import app_config
+from flask import Blueprint
+
 
 mod = Blueprint('error_routes', __name__)
 
+
 @mod.app_errorhandler(404)
 def error404(e):
-   return '404', 404
+    return '404', 404
+
 
 @mod.app_errorhandler(500)
 def error500(e):
-   return '500', 500
+    return '500', 500
