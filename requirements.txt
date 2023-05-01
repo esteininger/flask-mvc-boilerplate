@@ -1,4 +1,4 @@
-Flask==1.0
+Flask==2.3.2
 pycrypto==2.6.1
 flask_jwt_extended==3.24.0
 flask_mongoengine==0.9.5
